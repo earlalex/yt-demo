@@ -7,16 +7,45 @@
 	<body>
 		<div class="container">
 			<header>
-			
+				<nav>
+					<div class="title">
+						<span>Youtube Channel Display Demo</span>
+					</div>
+					<ul>
+						<li><button class="btn" id="login">Sign In</button></li>
+						<li><button class="btn" id="logout">Sign Out</button></li>
+					</ul>
+				</nav>
 			</header>
 			<section>
-				
-			</section>
-			<section>
-				
+				<div id="login-area">			
+					<form class="form" id="search" >
+						<input type="test" placeholder="Enter In Channel Name" id="form-input">
+						<input type="submit" class="submit-btn" value="Submit">
+					</form>
+					<div class="details" id="channel" >
+						<div class="no-results">						
+							<h3>Channel Details</h3>
+							<p>You must first choose a channel.</p>
+						</div>
+					</div>
+					<div class="display" id="videos" >
+						<div class="no-results">
+							<h3>Videos</h3>
+							<p>You must first choose a channel.</p>
+						</div>
+					</div>
+				</div>
+				<div id="logout-area">
+					<p>You are not logged in. You must log in to search for and view youtube videos.</p>
+				</div>
 			</section>
 			<footer>
-
+				<ul>
+					<li>
+						<span>Created by <a href="https://github.com/earlalex">Earl Alexander</a></span>
+					</li>
+				</ul>
 			</footer>
 		</div>
 		<script type="text/javascript" src="scripts.js"></script>
