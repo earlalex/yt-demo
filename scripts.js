@@ -70,7 +70,7 @@ function revokeAccess() {
 
 function setSigninStatus( isSignedIn ) {
 
-    if ( settings.isAuthorized ) {
+    if ( isSignedIn ) {
 	
 	    settings.loginBtn.style.display   = 'none';
 	    settings.logoutArea.style.display = 'none';
