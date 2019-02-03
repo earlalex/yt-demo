@@ -91,5 +91,5 @@ function setSigninStatus( isSignedIn ) {
 
 function updateSigninStatus( isSignedIn ) {
     
-    setSigninStatus();
+    setSigninStatus(isSignedIn);
 }
