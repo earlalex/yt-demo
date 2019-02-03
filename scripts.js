@@ -81,14 +81,17 @@ function setSigninStatus( isSignedIn ) {
 	    settings.channel.style.display    = 'block';
 	    settings.videos.style.display     = 'block';
 
+		let channels = getChannels();
+		
+		let likedID = channels
+		.items[0]
+		.contentDetails
+		.relatedPlaylists
+		.likes;
+
 	    console.log(
-	    	getLiked( 
-				getChannels()
-					.items[0]
-					.contentDetails
-					.relatedPlaylists
-					.likes
-	    	)
+	    	channels,
+	    	likedID
 	    );
     } else {
 
