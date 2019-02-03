@@ -167,7 +167,7 @@ function removeEmptyParams(params) {
 
 function executeRequest(request) {
 	request.execute(function(response) {
-	  console.log(response);
+	  return response;
 	});
 }
 
