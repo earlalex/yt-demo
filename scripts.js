@@ -189,7 +189,7 @@ function buildApiRequest(requestMethod, path, params, properties) {
 	      'params': params
 	  });
 	}
-	executeRequest(request);
+	return executeRequest(request);
 }
 
 function getChannels() {
