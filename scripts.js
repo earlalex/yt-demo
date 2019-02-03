@@ -37,7 +37,7 @@ function initClient() {
 		settings.isAuthorized = settings.user.hasGrantedScopes( settings.scope );
 		settings.GoogleAuth.isSignedIn.listen( updateSigninStatus );
       	
-      	setSigninStatus();
+      	setSigninStatus(settings.GoogleAuth.isSignedIn.get());
 
       	settings.loginBtn.onclick = function() {
     
