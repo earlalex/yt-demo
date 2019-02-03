@@ -81,7 +81,7 @@ function setSigninStatus( isSignedIn ) {
 	    settings.channel.style.display    = 'block';
 	    settings.videos.style.display     = 'block';
 
-	    console.log( defineRequest );
+	    console.log( defineRequest() );
     } else {
 
 	    settings.loginBtn.style.display   = 'block';
@@ -187,7 +187,7 @@ function buildApiRequest(requestMethod, path, params, properties) {
 
 function defineRequest() {
 
-	buildApiRequest('GET',
+	return buildApiRequest('GET',
             '/youtube/v3/channels',
             {
             	'mine': true,
