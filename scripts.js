@@ -1,4 +1,4 @@
-var settings = {
+let settings = {
 	apiKey         : 'AIzaSyDHAPNhJ1mO3ccRhiLvh2BLkL_EfECjrVY',
 	client         : '393661548459-e1as6ms1k3bkgitfak6u2t17adg92rvf.apps.googleusercontent.com',
 	endpoint       : 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest',
@@ -25,100 +25,68 @@ function handleClientLoad() {
 }
 
 function initClient() {
-
-	let { 
-		apiKey,
-		client,
-		endpoint,
-		scope,
-		GoogleAuth,
-		user,
-		loginBtn,
-		logoutBtn
-	} = settings;
     
     gapi.client.init({
-        'apiKey': apiKey,
-        'discoveryDocs': endpoint,
-        'clientId': client,
-        'scope': scope
+        'apiKey'        : settings.apiKey,
+        'discoveryDocs' : settinsg.endpoint,
+        'clientId'      : settings.client,
+        'scope'         : settings.scope
     }).then( function() {
 
-		GoogleAuth.isSignedIn.listen( updateSigninStatus );
+		settings.GoogleAuth.isSignedIn.listen( updateSigninStatus );
       	
       	setSigninStatus();
 
-      	loginBtn.onClick(function() {
+      	settings.loginBtn.onClick(function() {
     
         	handleAuthClick();
      	 }); 
 
-      	logoutBtn.onClick(function() {
+      	settings.logoutBtn.onClick(function() {
     
         	revokeAccess();
       	}); 
     });
-  }
+}
 
-  function handleAuthClick() {
-	
-	let { 
-		GoogleAuth,
-	} = settings;
+function handleAuthClick() {
     
-    if ( GoogleAuth.isSignedIn.get() ) {
+    if ( settings.GoogleAuth.isSignedIn.get() ) {
       
-      GoogleAuth.signOut();
+      settings.GoogleAuth.signOut();
     } else {
 
-      GoogleAuth.signIn();
+      settings.GoogleAuth.signIn();
     }
-  }
+}
 
-  function revokeAccess() {
+function revokeAccess() {
 
-  	let { 
-		GoogleAuth,
-	} = settings;
+    settings.GoogleAuth.disconnect();
+}
 
-    GoogleAuth.disconnect();
-  }
+function setSigninStatus( isSignedIn ) {
 
-  function setSigninStatus( isSignedIn ) {
+    if ( settings.isAuthorized ) {
 
-	let { 
-		scope,
-		GoogleAuth,
-		user,
-		isAuthorized,
-		loginBtn,
-		loginArea,
-		logoutBtn,
-		logoutArea,
-		channel,
-		videos
-	} = settings;
-
-    if ( isAuthorized ) {
-
-	    loginBtn.style.display   = 'none';
-	    logoutArea.style.display = 'none';
-	    logoutBtn.style.display  = 'block';
-	    loginArea.style.display  = 'block';
-	    channel.style.display    = 'block';
-	    videos.style.display     = 'block';
+	    settings.loginBtn.style.display   = 'none';
+	    settings.logoutArea.style.display = 'none';
+	    settings.logoutBtn.style.display  = 'block';
+	    settings.loginArea.style.display  = 'block';
+	    settongs.channel.style.display    = 'block';
+	    settings.videos.style.display     = 'block';
     } else {
 
-	    loginBtn.style.display   = 'block';
-	    logoutArea.style.display = 'block';
-	    logoutBtn.style.display  = 'none';
-	    loginArea.style.display  = 'none';
-	    channel.style.display    = 'none';
-	    videos.style.display     = 'none';
+	    settings.loginBtn.style.display   = 'block';
+	    settings.logoutArea.style.display = 'block';
+	    settings.logoutBtn.style.display  = 'none';
+	    settings.loginArea.style.display  = 'none';
+	    settongs.channel.style.display    = 'none';
+	    settings.videos.style.display     = 'none';
     }
-  }
+}
 
-  function updateSigninStatus( isSignedIn ) {
+function updateSigninStatus( isSignedIn ) {
     
     setSigninStatus();
-  }
+}
