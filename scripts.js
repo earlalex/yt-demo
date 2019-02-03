@@ -3,16 +3,6 @@ let settings = {
 	client         : '393661548459-e1as6ms1k3bkgitfak6u2t17adg92rvf.apps.googleusercontent.com',
 	endpoint       : ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
 	scope          : 'https://www.googleapis.com/auth/youtube.readonly',
-	loginBtn       : document.getElementById( 'login' ),
-	logoutBtn      : document.getElementById( 'logout' ),
-	loginArea      : document.getElementById( 'login-area' ),
-	logoutArea     : document.getElementById( 'logout-area' ),
-	form           : document.getElementById( 'search' ),
-	formInput      : document.getElementById( 'search-input' ),
-	channel        : document.getElementById( 'channel' ),
-	videos         : document.getElementById( 'videos' ),
-	noResults      : document.getElementById( 'no-results' ),
-	showResults    : document.getElementById( 'show-results' ),
 	defaultChannel : 'UCpMkVKgIolGzmfA09rlJ2tQ'
 };
 
@@ -20,8 +10,17 @@ let settings = {
 function handleClientLoad() {
 
 	gapi.load( 'client:auth2', initClient );
-console.log(gapi);
 
+	settings.loginBtn    = document.getElementById( 'login' ),
+	settings.logoutBtn   = document.getElementById( 'logout' ),
+	settings.loginArea   = document.getElementById( 'login-area' ),
+	settings.logoutArea  = document.getElementById( 'logout-area' ),
+	settings.form        = document.getElementById( 'search' ),
+	settings.formInput   = document.getElementById( 'search-input' ),
+	settings.channel     = document.getElementById( 'channel' ),
+	settings.videos      = document.getElementById( 'videos' ),
+	settings.noResults   = document.getElementById( 'no-results' ),
+	settings.showResults = document.getElementById( 'show-results' );
 }
 
 function initClient() {
