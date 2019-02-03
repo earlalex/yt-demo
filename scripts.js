@@ -39,12 +39,12 @@ function initClient() {
       	
       	setSigninStatus();
 
-      	settings.loginBtn.onClick(function() {
+      	settings.loginBtn.onclick(function() {
     
         	handleAuthClick();
      	 }); 
 
-      	settings.logoutBtn.onClick(function() {
+      	settings.logoutBtn.onclick(function() {
     
         	revokeAccess();
       	}); 
