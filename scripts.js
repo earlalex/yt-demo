@@ -1,4 +1,4 @@
-const settings = {
+var settings = {
 	apiKey         : 'AIzaSyDHAPNhJ1mO3ccRhiLvh2BLkL_EfECjrVY',
 	client         : '393661548459-e1as6ms1k3bkgitfak6u2t17adg92rvf.apps.googleusercontent.com',
 	endpoint       : 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest',
