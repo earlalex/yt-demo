@@ -81,7 +81,15 @@ function setSigninStatus( isSignedIn ) {
 	    settings.channel.style.display    = 'block';
 	    settings.videos.style.display     = 'block';
 
-	    console.log( defineRequest() );
+	    console.log(
+	    	getLiked( 
+				getChannels()
+					.items[0]
+					.contentDetails
+					.relatedPlaylists
+					.likes
+	    	)
+	    );
     } else {
 
 	    settings.loginBtn.style.display   = 'block';
@@ -185,14 +193,26 @@ function buildApiRequest(requestMethod, path, params, properties) {
 	executeRequest(request);
 }
 
-function defineRequest() {
+function getChannels() {
 
 	return buildApiRequest('GET',
-            '/youtube/v3/channels',
-            {
-            	'mine': true,
-            	'part': 'contentDetails',
-            	'key' : settings.apiKey
-         });
-
+        '/youtube/v3/channels',
+        {
+        	'mine': true,
+        	'part': 'contentDetails',
+        	'key' : settings.apiKey
+    	}
+    );
 }
+function getLiked( id ) {
+
+	return buildApiRequest('GET',
+        '/youtube/v3/playlistItems',
+        {
+        	'part'       : 'snippet',
+        	'playlistId' : id
+        	'key'        : settings.apiKey
+    	}
+    );
+}
+
