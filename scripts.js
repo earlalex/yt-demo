@@ -71,8 +71,6 @@ function revokeAccess() {
 function setSigninStatus( isSignedIn ) {
 
     if ( settings.isAuthorized ) {
-
-	    window.location.href = 'https://earlalex.github.io/yt-demo/index.html';
 	
 	    settings.loginBtn.style.display   = 'none';
 	    settings.logoutArea.style.display = 'none';
@@ -81,8 +79,6 @@ function setSigninStatus( isSignedIn ) {
 	    settings.channel.style.display    = 'block';
 	    settings.videos.style.display     = 'block';
     } else {
-
-	    window.location.href = 'https://earlalex.github.io/yt-demo/index.html';
 
 	    settings.loginBtn.style.display   = 'block';
 	    settings.logoutArea.style.display = 'block';
