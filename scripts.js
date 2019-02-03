@@ -84,7 +84,7 @@ function setSigninStatus( isSignedIn ) {
 	    settings.logoutArea.style.display = 'block';
 	    settings.logoutBtn.style.display  = 'none';
 	    settings.loginArea.style.display  = 'none';
-	    settongs.channel.style.display    = 'none';
+	    settings.channel.style.display    = 'none';
 	    settings.videos.style.display     = 'none';
     }
 }
