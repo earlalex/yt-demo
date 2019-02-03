@@ -39,15 +39,15 @@ function initClient() {
       	
       	setSigninStatus();
 
-      	settings.loginBtn.onclick(function() {
+      	settings.loginBtn.onclick = function() {
     
         	handleAuthClick();
-     	 }); 
+     	 }; 
 
-      	settings.logoutBtn.onclick(function() {
+      	settings.logoutBtn.onclick = function() {
     
         	revokeAccess();
-      	}); 
+      	}; 
     });
 }
 
