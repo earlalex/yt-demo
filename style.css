@@ -7,6 +7,9 @@ nav {
 	padding: 20px;
 	min-height: 70px;
 }
+section {
+	margin-top: 20px;
+}
 .btn {
 	margin: 10px;
 	padding:10px;

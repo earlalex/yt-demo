@@ -40,6 +40,8 @@ function initClient() {
       	
       	setSigninStatus(settings.GoogleAuth.isSignedIn.get());
 
+      	console.log(settings.GoogleAuth);
+
       	settings.loginBtn.onclick = function() {
     
         	handleAuthClick();
@@ -181,12 +183,7 @@ function buildApiRequest(requestMethod, path, params, properties) {
 	executeRequest(request);
 }
 
-/***** END BOILERPLATE CODE *****/
-
-
 function defineRequest() {
-// See full sample for buildApiRequest() code, which is not 
-// specific to a particular API or API method.
 
 	buildApiRequest('GET',
             '/youtube/v3/videos',
