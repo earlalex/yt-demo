@@ -1,3 +1,14 @@
-#ogin, #logout, #login-area, #logout-area, #channel, #video {
+#logout, #login-area, #logout-area, #channel, #video {
 	display: none;
+}
+nav {
+	background-color: #000;
+	color: #fff;
+	padding: 20px;
+	min-height: 70px;
+}
+.btn {
+	margin: 10px;
+	padding:10px;
+	font-weight: 900;
 }
