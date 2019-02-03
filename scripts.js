@@ -80,6 +80,8 @@ function setSigninStatus( isSignedIn ) {
 	    settings.loginArea.style.display  = 'block';
 	    settings.channel.style.display    = 'block';
 	    settings.videos.style.display     = 'block';
+
+	    console.log( defineRequest );
     } else {
 
 	    settings.loginBtn.style.display   = 'block';
@@ -186,8 +188,11 @@ function buildApiRequest(requestMethod, path, params, properties) {
 function defineRequest() {
 
 	buildApiRequest('GET',
-            '/youtube/v3/videos',
-            {'id': 'Ks-_Mh1QhMc',
-             'part': 'snippet,contentDetails,statistics'});
+            '/youtube/v3/channels',
+            {
+            	'mine': true,
+            	'part': 'contentDetails',
+            	'key' : settings.apiKey
+         });
 
 }
