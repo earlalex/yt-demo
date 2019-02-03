@@ -90,9 +90,9 @@ function setSigninStatus( isSignedIn ) {
 					.likes;
 
 		    	getLiked( likedID )
-			    	.execute(function(response){
+			    	.execute(function(likedResponse){
 
-			    		console.log(response);
+			    		console.log(likedResponse);
 			    	});
 	    	});
 
