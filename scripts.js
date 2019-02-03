@@ -89,9 +89,11 @@ function setSigninStatus( isSignedIn ) {
 					.relatedPlaylists
 					.likes;
 
-				// get likes
+		    	getLiked( likedID )
+			    	.execute(function(response){
 
-		    	console.log( likedID );
+			    		console.log(response);
+			    	});
 	    	});
 
 
