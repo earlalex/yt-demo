@@ -210,7 +210,7 @@ function getLiked( id ) {
         '/youtube/v3/playlistItems',
         {
         	'part'       : 'snippet',
-        	'playlistId' : id
+        	'playlistId' : id,
         	'key'        : settings.apiKey
     	}
     );
