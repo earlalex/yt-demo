@@ -165,12 +165,6 @@ function removeEmptyParams(params) {
 	return params;
 }
 
-function executeRequest(request) {
-	request.execute(function(response) {
-	  return response;
-	});
-}
-
 function buildApiRequest(requestMethod, path, params, properties) {
 	params = removeEmptyParams(params);
 	var request;
@@ -189,7 +183,7 @@ function buildApiRequest(requestMethod, path, params, properties) {
 	      'params': params
 	  });
 	}
-	return executeRequest(request);
+	return request;
 }
 
 function getChannels() {
