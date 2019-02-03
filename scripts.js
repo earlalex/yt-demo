@@ -40,8 +40,6 @@ function initClient() {
       	
       	setSigninStatus(settings.GoogleAuth.isSignedIn.get());
 
-      	console.log(settings.GoogleAuth);
-
       	settings.loginBtn.onclick = function() {
     
         	handleAuthClick();
