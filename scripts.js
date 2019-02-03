@@ -80,17 +80,15 @@ function setSigninStatus( isSignedIn ) {
 	    settings.videos.style.display     = 'block';
 
 		let channels = getChannels();
-		
-		let likedID = channels
-		.items[0]
-		.contentDetails
-		.relatedPlaylists
-		.likes;
+	    console.log( channels );
 
-	    console.log(
-	    	channels,
-	    	likedID
-	    );
+		let likedID = channels
+			.items[0]
+			.contentDetails
+			.relatedPlaylists
+			.likes;
+
+	    console.log( likedID );
     } else {
 
 	    settings.loginBtn.style.display   = 'block';
