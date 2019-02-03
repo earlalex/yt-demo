@@ -80,7 +80,7 @@ function setSigninStatus( isSignedIn ) {
 	    settings.videos.style.display     = 'block';
 
 		let channels = getChannels();
-	    console.log( getChannels() );
+	    console.log( getChannels().execute() );
 
 		let likedID = channels
 			.items[0]
