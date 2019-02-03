@@ -42,16 +42,12 @@ function initClient() {
       	settings.loginBtn.onclick = function() {
     
         	handleAuthClick();
-
-        	window.location.href = 'https://earlalex.github.io/yt-demo/index.html';
-     	 }; 
+     	 };
 
       	settings.logoutBtn.onclick = function() {
     
         	revokeAccess();
-
-        	window.location.href = 'https://earlalex.github.io/yt-demo/index.html';
-      	}; 
+		}; 
     });
 }
 
@@ -64,11 +60,15 @@ function handleAuthClick() {
 
       settings.GoogleAuth.signIn();
     }
+    
+    window.location.href = 'https://earlalex.github.io/yt-demo/index.html';
 }
 
 function revokeAccess() {
 
     settings.GoogleAuth.disconnect();
+
+    window.location.href = 'https://earlalex.github.io/yt-demo/index.html';
 }
 
 function setSigninStatus( isSignedIn ) {
