@@ -3,9 +3,6 @@ let settings = {
 	client         : '393661548459-e1as6ms1k3bkgitfak6u2t17adg92rvf.apps.googleusercontent.com',
 	endpoint       : 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest',
 	scope          : 'https://www.googleapis.com/auth/youtube.readonly',
-    GoogleAuth     : gapi.auth2.getAuthInstance(),
-    user           : this.GoogleAuth.currentUser.get(),
-    isAuthorized   : this.user.hasGrantedScopes( this.scope ),
 	loginBtn       : document.getElementById( 'login' ),
 	logoutBtn      : document.getElementById( 'logout' ),
 	loginArea      : document.getElementById( 'login-area' ),
@@ -19,20 +16,26 @@ let settings = {
 	defaultChannel : 'UCpMkVKgIolGzmfA09rlJ2tQ'
 };
 
+
 function handleClientLoad() {
 
 	gapi.load( 'client:auth2', initClient );
+console.log(gapi);
+
 }
 
 function initClient() {
     
     gapi.client.init({
         'apiKey'        : settings.apiKey,
-        'discoveryDocs' : settinsg.endpoint,
+        'discoveryDocs' : settings.endpoint,
         'clientId'      : settings.client,
         'scope'         : settings.scope
     }).then( function() {
 
+		settings.GoogleAuth   = gapi.auth2.getAuthInstance();
+		settings.user         = settings.GoogleAuth.currentUser.get();
+		settings.isAuthorized = settings.user.hasGrantedScopes( settings.scope );
 		settings.GoogleAuth.isSignedIn.listen( updateSigninStatus );
       	
       	setSigninStatus();
@@ -73,7 +76,7 @@ function setSigninStatus( isSignedIn ) {
 	    settings.logoutArea.style.display = 'none';
 	    settings.logoutBtn.style.display  = 'block';
 	    settings.loginArea.style.display  = 'block';
-	    settongs.channel.style.display    = 'block';
+	    settings.channel.style.display    = 'block';
 	    settings.videos.style.display     = 'block';
     } else {
 
