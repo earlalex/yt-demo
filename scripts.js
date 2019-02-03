@@ -60,15 +60,11 @@ function handleAuthClick() {
 
       settings.GoogleAuth.signIn();
     }
-    
-    window.location.href = 'https://earlalex.github.io/yt-demo/index.html';
 }
 
 function revokeAccess() {
 
     settings.GoogleAuth.disconnect();
-
-    window.location.href = 'https://earlalex.github.io/yt-demo/index.html';
 }
 
 function setSigninStatus( isSignedIn ) {
