@@ -22,7 +22,7 @@ function handleClientLoad() {
 	settings.form        = document.getElementById( 'search' ),
 	settings.formInput   = document.getElementById( 'search-input' ),
 	settings.formSubmit  = document.getElementById( 'search-submit' ),
-	settings.channel     = document.getElementById( 'channel' ),
+	settings.email       = document.getElementById( 'email' ),
 	settings.videos      = document.getElementById( 'videos' ),
 	settings.noResults   = document.getElementById( 'no-results' ),
 	settings.showResults = document.getElementById( 'show-results' );
@@ -115,7 +115,7 @@ function setSigninStatus( isSignedIn ) {
 	    settings.form.style.display       = 'block',
 	    settings.logoutBtn.style.display  = 'block',
 	    settings.loginArea.style.display  = 'block',
-	    settings.channel.style.display    = 'block',
+	    settings.email.style.display      = 'block',
 	    settings.videos.style.display     = 'block';
     	
     	getChannels()
@@ -153,7 +153,7 @@ function setSigninStatus( isSignedIn ) {
 	    settings.form.style.display       = 'none',
 	    settings.logoutBtn.style.display  = 'none',
 	    settings.loginArea.style.display  = 'none',
-	    settings.channel.style.display    = 'none',
+	    settings.email.style.display      = 'none',
 	    settings.videos.style.display     = 'none';
     }
 }
