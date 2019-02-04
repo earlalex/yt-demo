@@ -69,19 +69,22 @@ function initClient() {
 				
 					let searchResults = searchResponse.items;
 
+						videoResults.search = searchResponse;
+
 					for ( var i = searchResults.length - 1; i >= 0; i-- ) {
 
-						videoResults.search[ i ] = {
-							'channel'     : searchResults[ i ].snippet.channelTitle,
-							'channelId'   : searchResults[ i ].snippet.channelId,
-							'title'       : searchResults[ i ].snippet.title,
-							'description' : searchResults[ i ].snippet.description,
-							'publishedAt' : searchResults[ i ].snippet.publishedAt,
-							'videoId'     : searchResults[ i ].snippet.resourceId.videoId,
-							'thumbnail'   : searchResults[ i ].snippet.thumbnails.high.url
-						}
+						// videoResults.search[ i ] = {
+						// 	'channel'     : searchResults[ i ].snippet.channelTitle,
+						// 	'channelId'   : searchResults[ i ].snippet.channelId,
+						// 	'title'       : searchResults[ i ].snippet.title,
+						// 	'description' : searchResults[ i ].snippet.description,
+						// 	'publishedAt' : searchResults[ i ].snippet.publishedAt,
+						// 	'videoId'     : searchResults[ i ].snippet.resourceId.videoId,
+						// 	'thumbnail'   : searchResults[ i ].snippet.thumbnails.high.url
+						// }
 					}
 				});
+				    console.log(videoResults.search,videoResults.liked);
 			} else {
 
 						console.log( 'Nothing' );
@@ -132,9 +135,9 @@ function setSigninStatus( isSignedIn ) {
 
 					let likedResults = likedResponse.items;
 
-					for ( var i = likedResults.length - 1; i >= 0; i-- ) {
+					videoResults.liked = likedResponse;
 
-						videoResults.liked = i;
+					for ( var i = likedResults.length - 1; i >= 0; i-- ) {
 
 						// videoResults.liked[ i ] = {
 						// 	'channel'     : likedResults[ i ].snippet.channelTitle,
@@ -148,8 +151,6 @@ function setSigninStatus( isSignedIn ) {
 					}
 				});
 	    });
-
-	    console.log(videoResults.search,videoResults.liked);
     } else {
 
 	    settings.loginBtn.style.display   = 'block',
