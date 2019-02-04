@@ -81,7 +81,6 @@ function setSigninStatus( isSignedIn ) {
 
     	getChannels()
 	    	.execute(function(response) {
-	    		console.log(response);
 
 	    		let likedID = response
 					.items[0]
@@ -92,12 +91,11 @@ function setSigninStatus( isSignedIn ) {
 		    	getLiked( likedID )
 			    	.execute(function(likedResponse){
 
-			    		console.log(likedResponse);
+			    		let likedPlaylist = likedResponse.items;
 			    	});
 	    	});
 
-
-
+	    console.log(likedPlaylist);
     } else {
 
 	    settings.loginBtn.style.display   = 'block';
