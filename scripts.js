@@ -46,10 +46,6 @@ function initClient() {
 		settings.GoogleAuth.isSignedIn.listen( updateSigninStatus );
       	
       	setSigninStatus(settings.GoogleAuth.isSignedIn.get());
-		
-		settings.image.src       = settings.user.w3.Paa;
-		settings.name.innerHTML  = settings.user.w3.ig;
-		settings.email.innerHTML = settings.user.w3.U3;
 
       	settings.loginBtn.onclick = function() {
     
@@ -123,7 +119,10 @@ function setSigninStatus( isSignedIn ) {
 	    settings.logoutBtn.style.display  = 'block',
 	    settings.loginArea.style.display  = 'block',
 	    settings.email.style.display      = 'block',
-	    settings.videos.style.display     = 'block';
+	    settings.videos.style.display     = 'block',
+		settings.image.src                = settings.user.w3.Paa,
+		settings.name.innerHTML           = settings.user.w3.ig,
+		settings.email.innerHTML          = settings.user.w3.U3;
     	
     	getChannels()
 	    	.execute( function( response ) {
@@ -163,7 +162,10 @@ function setSigninStatus( isSignedIn ) {
 	    settings.logoutBtn.style.display  = 'none',
 	    settings.loginArea.style.display  = 'none',
 	    settings.email.style.display      = 'none',
-	    settings.videos.style.display     = 'none';
+	    settings.videos.style.display     = 'none',
+		settings.image.src                = '',
+		settings.name.innerHTML           = '',
+		settings.email.innerHTML          = '';
     }
 }
 
