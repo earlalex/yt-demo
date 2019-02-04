@@ -55,7 +55,7 @@ function initClient() {
 
 			e.preventDefault();
 
-			let term = settings.formInput.innerHTML;
+			let term = settings.formInput.value;
 
 						console.log( term );
 			if ( term !== '' ) {
