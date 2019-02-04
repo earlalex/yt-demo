@@ -51,7 +51,9 @@ function initClient() {
         	revokeAccess();
 		};
 
-		settings.formSubmit.onclick = function() {
+		settings.formSubmit.onclick = function( e ) {
+
+			e.preventDefault();
 
 			let term = settings.formInput.innerHTML;
 
