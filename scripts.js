@@ -53,16 +53,18 @@ function initClient() {
 
 		settings.formSubmit.onclick = function() {
 
-			if ( settings.formInput.innerHTML !== '' ) {
+			let term = settings.formInput.innerHTML;
 
-				getSearch( settings.formInput.innerHTML )
+			if ( term !== '' ) {
+
+				getSearch( term )
 					.execute( function( searchResponse ) {
 				
 						console.log( searchResponse );
 				});
 			} else {
 
-
+						console.log( 'Nothing' );
 			}
 		}
     });
