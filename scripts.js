@@ -7,8 +7,10 @@ let settings = {
 };
 
 let videoResults = {
-	liked  : {},
-	search : {}
+	liked        : {},
+	likedOutput  : '',
+	search       : {},
+	searchOutput : ''
 }
 
 function handleClientLoad() {
@@ -64,24 +66,32 @@ function initClient() {
 			let term = settings.formInput.value;
 
 			if ( term !== '' ) {
-				
+
 				getSearch( term )
 					.execute( function( searchResponse ) {
 				
-					let searchResults = searchResponse.items;
+					const searchResults = searchResponse.items;
 
-					for ( var i = searchResults.length - 1; i >= 0; i-- ) {
+					videoResults.search = searchResponse.items;
 
-						videoResults.search[ i ] = {
-							'channel'     : searchResults[ i ].snippet.channelTitle,
-							'channelId'   : searchResults[ i ].snippet.channelId,
-							'title'       : searchResults[ i ].snippet.title,
-							'description' : searchResults[ i ].snippet.description,
-							'publishedAt' : searchResults[ i ].snippet.publishedAt,
-							'videoId'     : searchResults[ i ].snippet.resourceId.videoId,
-							'thumbnail'   : searchResults[ i ].snippet.thumbnails.high.url
-						}
-					}
+					searchResults.forEach( item => {
+
+						// videoResults.search[ item ] = {
+						// 	'channel'     : searchResults[ item ].snippet.channelTitle,
+						// 	'channelId'   : searchResults[ item ].snippet.channelId,
+						// 	'title'       : searchResults[ item ].snippet.title,
+						// 	'description' : searchResults[ item ].snippet.description,
+						// 	'publishedAt' : searchResults[ item ].snippet.publishedAt,
+						// 	'videoId'     : searchResults[ item ].snippet.resourceId.videoId,
+						// 	'thumbnail'   : searchResults[ item ].snippet.thumbnails.high.url
+						// }
+
+						// videoResults.likedOutput += `
+						// 	<div class="video-embed">
+						// 		<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoResults.search[ item ].videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						// 	</div>
+						// `;
+					});
 
 				    console.log(videoResults.search,videoResults.liked);
 				});
@@ -127,7 +137,7 @@ function setSigninStatus( isSignedIn ) {
     	getChannels()
 	    	.execute( function( response ) {
 
-	    		let likedID = response
+	    		const likedID = response
 					.items[ 0 ]
 					.contentDetails
 					.relatedPlaylists
@@ -136,22 +146,28 @@ function setSigninStatus( isSignedIn ) {
 		    	getLiked( likedID )
 					.execute( function( likedResponse ) {
 
-					let likedResults = likedResponse.items;
+					const likedResults = likedResponse.items;
 
-					videoResults.liked = likedResponse;
+					likedResults.forEach( item => {
 
-					for ( var i = likedResults.length - 1; i >= 0; i-- ) {
+						videoResults.liked[ item ] = {
+							'channel'     : likedResults[ item ].snippet.channelTitle,
+							'channelId'   : likedResults[ item ].snippet.channelId,
+							'title'       : likedResults[ item ].snippet.title,
+							'description' : likedResults[ item ].snippet.description,
+							'publishedAt' : likedResults[ item ].snippet.publishedAt,
+							'videoId'     : likedResults[ item ].snippet.resourceId.videoId,
+							'thumbnail'   : likedResults[ item ].snippet.thumbnails.high.url
+						}
 
-						// videoResults.liked[ i ] = {
-						// 	'channel'     : likedResults[ i ].snippet.channelTitle,
-						// 	'channelId'   : likedResults[ i ].snippet.channelId,
-						// 	'title'       : likedResults[ i ].snippet.title,
-						// 	'description' : likedResults[ i ].snippet.description,
-						// 	'publishedAt' : likedResults[ i ].snippet.publishedAt,
-						// 	'videoId'     : likedResults[ i ].snippet.resourceId.videoId,
-						// 	'thumbnail'   : likedResults[ i ].snippet.thumbnails.high.url
-						// }
-					}
+						videoResults.likedOutput += `
+							<div class="video-embed">
+								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoResults.liked[ item ].videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							</div>
+						`;
+					});
+
+					settings.videos.innerHTML = videoResults.likedOutput;
 				});
 	    });
     } else {
