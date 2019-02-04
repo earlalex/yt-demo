@@ -1,6 +1,9 @@
 #logout, #login-area, #logout-area, #email, #video, #search {
 	display: none;
 }
+#login {
+	max-width: 100px;
+}
 nav {
 	background-color: #8000FF;
 	color: #fff;
@@ -20,4 +23,10 @@ section {
 	margin: 10px;
 	padding:10px;
 	font-weight: 900;
+}
+.logout-left {
+	text-align: right;
+}
+.logout-right {
+	text-align: left;
 }
