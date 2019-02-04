@@ -271,7 +271,7 @@ function getSearch( term ) {
         	'part'       : 'snippet',
         	'q'          : term,
         	'type'       : 'video',
-        	'maxResults' : '20';
+        	'maxResults' : '20',
         	'key'        : settings.apiKey
     	}
     );
