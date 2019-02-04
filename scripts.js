@@ -44,6 +44,8 @@ function initClient() {
 		settings.GoogleAuth.isSignedIn.listen( updateSigninStatus );
       	
       	setSigninStatus(settings.GoogleAuth.isSignedIn.get());
+		
+		console.log( settings.user );
 
       	settings.loginBtn.onclick = function() {
     
@@ -61,7 +63,6 @@ function initClient() {
 
 			let term = settings.formInput.value;
 
-						console.log( term );
 			if ( term !== '' ) {
 
 				getSearch( term )
@@ -69,7 +70,7 @@ function initClient() {
 				
 					// let searchResults = searchResponse.items;
 
-				    console.log(searchResponse,videoResults.liked);
+				    console.log(searchResponse.items,videoResults.liked);
 
 					// for ( var i = searchResults.length - 1; i >= 0; i-- ) {
 
