@@ -79,6 +79,8 @@ function setSigninStatus( isSignedIn ) {
 	    settings.channel.style.display    = 'block';
 	    settings.videos.style.display     = 'block';
 
+	    var likedvideos = {};
+    	
     	getChannels()
 	    	.execute(function(response) {
 
@@ -94,8 +96,6 @@ function setSigninStatus( isSignedIn ) {
 						let likedPlaylist = likedResponse.items;
 
 			    		for ( var i = likedPlaylist.length - 1; i >= 0; i-- ) {
-
-			    			var likedvideos = {};
 
 			    			likedvideos.i = {
 			    				'channel'     : likedPlaylist[i].snippet.channelTitle,
