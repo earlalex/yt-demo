@@ -1,11 +1,21 @@
-#logout, #login-area, #logout-area, #email, #video, #search, #user-image, #user-name {
+#logout, #login-area, #logout-area, #email, #video, #search, #user-image, #user-name, #search-submit {
 	display: none;
 }
 #login {
 	max-width: 200px;
 }
+#search{
+	max-width: 400px;
+    margin: auto;
+    margin-top: 20px;
+}
+#search-input {
+	width: 100%;
+    line-height: 30px;
+}
 body {
 	font-family: Arial;
+	color: #636363;
 }
 nav {
 	background-color: #8000FF;
@@ -13,7 +23,6 @@ nav {
 	padding: 20px;
 	min-height: 70px;
 }
-
 section {
 	margin-top: 20px;
 }
@@ -37,6 +46,9 @@ footer {
 	margin: 10px;
 	padding:10px;
 	font-weight: 900;
+}
+.search-text {
+	color: #e3e3e3;
 }
 .logout-left {
 	text-align: right;
