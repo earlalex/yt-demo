@@ -166,7 +166,7 @@ function setSigninStatus( isSignedIn ) {
 	    settings.loginArea.style.display  = 'none',
 	    settings.email.style.display      = 'none',
 	    settings.videos.style.display     = 'none',
-	    settings.videos.innerHTML.        = '',
+	    settings.videos.innerHTML         = '',
 		settings.image.src                = '',
 		settings.name.innerHTML           = '',
 		settings.email.innerHTML          = '';
