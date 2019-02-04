@@ -250,6 +250,7 @@ function getChannels() {
     	}
     );
 }
+
 function getLiked( id ) {
 
 	return buildApiRequest('GET',
@@ -261,6 +262,7 @@ function getLiked( id ) {
     	}
     );
 }
+
 function getSearch( term ) {
 
 	return buildApiRequest('GET',
@@ -269,7 +271,7 @@ function getSearch( term ) {
         	'part'       : 'snippet',
         	'q'          : term,
         	'type'       : 'video',
-        	'maxResults' : 20;
+        	'maxResults' : '20';
         	'key'        : settings.apiKey
     	}
     );
