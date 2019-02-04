@@ -93,11 +93,11 @@ function setSigninStatus( isSignedIn ) {
 
 						let likedPlaylist = likedResponse.items;
 
-			    		for ( let i = likedPlaylist.length - 1; i >= 0; i-- ) {
+			    		for ( var i = likedPlaylist.length - 1; i >= 0; i-- ) {
 
-			    			let likedvideos = {};
+			    			var likedvideos = {};
 
-			    			likedvideos[i] = {
+			    			likedvideos.i = {
 			    				'channel'     : likedPlaylist[i].snippet.channelTitle,
 			    				'channelId'   : likedPlaylist[i].snippet.channelId,
 			    				'title'       : likedPlaylist[i].snippet.title,
@@ -106,10 +106,9 @@ function setSigninStatus( isSignedIn ) {
 			    				'videoId'     : likedPlaylist[i].snippet.resourceId.videoId,
 			    				'thumbnail'   : likedPlaylist[i].snippet.thumbnails.high.url
 			    			}
-
-	   						console.log(likedvideos);
 			    		}
-	   					
+
+	   					console.log(likedvideos);
 			    	});
 	    	});
 
