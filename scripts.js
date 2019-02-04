@@ -6,6 +6,10 @@ let settings = {
 	defaultChannel : 'UCpMkVKgIolGzmfA09rlJ2tQ'
 };
 
+let videoResults = {
+	liked  : {},
+	search : {}
+}
 
 function handleClientLoad() {
 
@@ -63,7 +67,20 @@ function initClient() {
 				getSearch( term )
 					.execute( function( searchResponse ) {
 				
-						console.log( searchResponse );
+					let searchResults = searchResponse.items;
+
+					for ( var i = searchResults.length - 1; i >= 0; i-- ) {
+
+						videoResults.search[ i ] = {
+							'channel'     : searchResults[ i ].snippet.channelTitle,
+							'channelId'   : searchResults[ i ].snippet.channelId,
+							'title'       : searchResults[ i ].snippet.title,
+							'description' : searchResults[ i ].snippet.description,
+							'publishedAt' : searchResults[ i ].snippet.publishedAt,
+							'videoId'     : searchResults[ i ].snippet.resourceId.videoId,
+							'thumbnail'   : searchResults[ i ].snippet.thumbnails.high.url
+						}
+					}
 				});
 			} else {
 
@@ -100,8 +117,6 @@ function setSigninStatus( isSignedIn ) {
 	    settings.loginArea.style.display  = 'block',
 	    settings.channel.style.display    = 'block',
 	    settings.videos.style.display     = 'block';
-
-	    var likedvideos = {};
     	
     	getChannels()
 	    	.execute( function( response ) {
@@ -115,18 +130,18 @@ function setSigninStatus( isSignedIn ) {
 		    	getLiked( likedID )
 					.execute( function( likedResponse ) {
 
-					let likedPlaylist = likedResponse.items;
+					let likedResults = likedResponse.items;
 
-					for ( var i = likedPlaylist.length - 1; i >= 0; i-- ) {
+					for ( var i = likedResults.length - 1; i >= 0; i-- ) {
 
-						likedvideos[ i ] = {
-							'channel'     : likedPlaylist[ i ].snippet.channelTitle,
-							'channelId'   : likedPlaylist[ i ].snippet.channelId,
-							'title'       : likedPlaylist[ i ].snippet.title,
-							'description' : likedPlaylist[ i ].snippet.description,
-							'publishedAt' : likedPlaylist[ i ].snippet.publishedAt,
-							'videoId'     : likedPlaylist[ i ].snippet.resourceId.videoId,
-							'thumbnail'   : likedPlaylist[ i ].snippet.thumbnails.high.url
+						videoResults.liked[ i ] = {
+							'channel'     : likedResults[ i ].snippet.channelTitle,
+							'channelId'   : likedResults[ i ].snippet.channelId,
+							'title'       : likedResults[ i ].snippet.title,
+							'description' : likedResults[ i ].snippet.description,
+							'publishedAt' : likedResults[ i ].snippet.publishedAt,
+							'videoId'     : likedResults[ i ].snippet.resourceId.videoId,
+							'thumbnail'   : likedResults[ i ].snippet.thumbnails.high.url
 						}
 					}
 				});
@@ -278,3 +293,4 @@ function getSearch( term ) {
 
 }
 
+console.log(videoResults.search,videoResults.liked);
