@@ -146,6 +146,8 @@ function setSigninStatus( isSignedIn ) {
 					}
 				});
 	    });
+
+	    console.log(videoResults.search,videoResults.liked);
     } else {
 
 	    settings.loginBtn.style.display   = 'block',
@@ -292,5 +294,3 @@ function getSearch( term ) {
     );
 
 }
-
-console.log(videoResults.search,videoResults.liked);
