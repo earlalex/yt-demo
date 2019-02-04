@@ -12,7 +12,7 @@
 				</h1>
 				<div>
 					<form class="form" id="search" >
-						<input type="test" placeholder="Search" id="search-input">
+						<input type="text" placeholder="Search" id="search-input" pattern="[a-zA-Z0-9.,'-]">
 						<input type="submit" id="search-submit" value="Submit">
 					</form>
 				</div>
@@ -25,13 +25,15 @@
 						<img id="user-image" src="">
 						<h3 id="user-name"></h3>
 						<h3 id="user-email"></h3>
-						<p id="logout">Sign Out</p>
+						<p id="logout"><a>Sign Out</a></p>
 					</div>
 					<div class="display" id="videos" >
 					</div>
 				</div>
 				<div id="logout-area">
-					<span class="btn" id="login"><img src="img/login.png"></span>
+					<div id="login">
+						<img src="img/login.png">
+					</div>
 					<span>You are not logged in. You must log in to search for and view youtube videos.</span>
 				</div>
 			</section>

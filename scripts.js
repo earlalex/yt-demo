@@ -64,13 +64,13 @@ function initClient() {
 			let term = settings.formInput.value;
 
 			if ( term !== '' ) {
-
+				
 				getSearch( term )
 					.execute( function( searchResponse ) {
 				
-					// let searchResults = searchResponse.items;
+					let searchResults = searchResponse.items;
 
-				    console.log(searchResponse.items,videoResults.liked);
+				    console.log(searchResults,videoResults.liked);
 
 					// for ( var i = searchResults.length - 1; i >= 0; i-- ) {
 
@@ -87,7 +87,7 @@ function initClient() {
 				});
 			} else {
 
-						console.log( 'Nothing' );
+				alert( 'You must enter something to search for.' );
 			}
 		}
     });
