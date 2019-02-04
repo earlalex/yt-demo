@@ -97,7 +97,7 @@ function setSigninStatus( isSignedIn ) {
 
 			    			let likedvideos = {};
 
-			    			likedvideos.i = {
+			    			likedvideos[i] = {
 			    				'channel'     : likedPlaylist[i].snippet.channelTitle,
 			    				'channelId'   : likedPlaylist[i].snippet.channelId,
 			    				'title'       : likedPlaylist[i].snippet.title,
