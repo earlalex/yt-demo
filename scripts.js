@@ -59,7 +59,7 @@ function initClient() {
 					.execute( function( searchResponse ) {
 				
 						console.log( searchResponse );
-				}
+				});
 			} else {
 
 
