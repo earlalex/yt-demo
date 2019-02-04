@@ -42,6 +42,9 @@ footer {
 .logout-right {
 	text-align: left;
 }
+.user-details {
+    margin-bottom: 20px;
+}
 .video-embed {
 	width: 100%;
 	max-width: 300px;

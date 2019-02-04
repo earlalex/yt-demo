@@ -153,7 +153,7 @@ function setSigninStatus( isSignedIn ) {
 					});
 
 					settings.videosTitle.innerHTML = 'Liked Videos',
-					settings.videos.innerHTML      = videoResults.liked,
+					settings.videos.innerHTML      = videoResults.liked.replace('[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]',''),
 					settings.videos.style.display  = 'block';
 				});
 	    });
