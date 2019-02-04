@@ -86,7 +86,7 @@ function initClient() {
 					});
 
 					settings.videosTitle.innerHTML = 'Video Search',
-					settings.videos.innerHTML      = videoResults.search,
+					settings.videos.innerHTML      = videoResults.search.replace('[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]',''),
 					settings.videos.style.display  = 'block';
 				});
 			} else {
@@ -153,7 +153,7 @@ function setSigninStatus( isSignedIn ) {
 					});
 
 					settings.videosTitle.innerHTML = 'Liked Videos',
-					settings.videos.innerHTML      = videoResults.liked.replace('[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]',''),
+					settings.videos.innerHTML      = videoResults.liked,
 					settings.videos.style.display  = 'block';
 				});
 	    });
