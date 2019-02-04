@@ -120,9 +120,9 @@ function setSigninStatus( isSignedIn ) {
 	    settings.loginBtn.style.display   = 'none',
 	    settings.logoutArea.style.display = 'none',
 	    settings.form.style.display       = 'block',
-	    settings.logoutBtn.style.display  = 'block',
 	    settings.loginArea.style.display  = 'block',
-	    settings.email.style.display      = 'block',
+	    settings.logoutBtn.style.display  = 'inline-block',
+	    settings.email.style.display      = 'inline-block',
 		settings.image.src                = settings.user.w3.Paa,
 		settings.name.innerHTML           = settings.user.w3.ig,
 		settings.email.innerHTML          = settings.user.w3.U3;
