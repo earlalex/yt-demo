@@ -81,7 +81,7 @@ function initClient() {
 						`;
 					});
 
-				    console.log(videoResults.search,videoResults.liked);
+				    console.log(item);
 				});
 			} else {
 
