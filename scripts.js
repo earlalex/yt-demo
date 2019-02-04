@@ -148,7 +148,7 @@ function setSigninStatus( isSignedIn ) {
 						`;
 					});
 
-					settings.videos.innerHTML = videoResults.liked;
+					settings.videos.innerHTML = videoResults.liked.replace(/[object Object]/g, '').replace(/,/g, '');
 				});
 	    });
     } else {
