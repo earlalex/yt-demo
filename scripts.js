@@ -67,11 +67,11 @@ function initClient() {
 				getSearch( term )
 					.execute( function( searchResponse ) {
 				
-					let searchResults = searchResponse.items;
+					// let searchResults = searchResponse.items;
 
 						videoResults.search = searchResponse;
 
-					for ( var i = searchResults.length - 1; i >= 0; i-- ) {
+					// for ( var i = searchResults.length - 1; i >= 0; i-- ) {
 
 						// videoResults.search[ i ] = {
 						// 	'channel'     : searchResults[ i ].snippet.channelTitle,
@@ -82,7 +82,7 @@ function initClient() {
 						// 	'videoId'     : searchResults[ i ].snippet.resourceId.videoId,
 						// 	'thumbnail'   : searchResults[ i ].snippet.thumbnails.high.url
 						// }
-					}
+					// }
 				});
 				    console.log(videoResults.search,videoResults.liked);
 			} else {
