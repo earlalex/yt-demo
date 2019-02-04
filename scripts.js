@@ -7,10 +7,8 @@ let settings = {
 };
 
 let videoResults = {
-	liked        : {},
-	likedOutput  : '',
-	search       : {},
-	searchOutput : ''
+	liked  : '',
+	search : ''
 }
 
 function handleClientLoad() {
@@ -76,21 +74,11 @@ function initClient() {
 
 					searchResults.forEach( item => {
 
-						// videoResults.search[ item ] = {
-						// 	'channel'     : searchResults[ item ].snippet.channelTitle,
-						// 	'channelId'   : searchResults[ item ].snippet.channelId,
-						// 	'title'       : searchResults[ item ].snippet.title,
-						// 	'description' : searchResults[ item ].snippet.description,
-						// 	'publishedAt' : searchResults[ item ].snippet.publishedAt,
-						// 	'videoId'     : searchResults[ item ].snippet.resourceId.videoId,
-						// 	'thumbnail'   : searchResults[ item ].snippet.thumbnails.high.url
-						// }
-
-						// videoResults.likedOutput += `
-						// 	<div class="video-embed">
-						// 		<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoResults.search[ item ].videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-						// 	</div>
-						// `;
+						videoResults.search += `
+							<div class="video-embed">
+								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${item.snippet.resourceId.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							</div>
+						`;
 					});
 
 				    console.log(videoResults.search,videoResults.liked);
@@ -150,24 +138,14 @@ function setSigninStatus( isSignedIn ) {
 
 					likedResults.forEach( item => {
 
-						videoResults.liked[ item ] = {
-							'channel'     : likedResults[ item ].snippet.channelTitle,
-							'channelId'   : likedResults[ item ].snippet.channelId,
-							'title'       : likedResults[ item ].snippet.title,
-							'description' : likedResults[ item ].snippet.description,
-							'publishedAt' : likedResults[ item ].snippet.publishedAt,
-							'videoId'     : likedResults[ item ].snippet.resourceId.videoId,
-							'thumbnail'   : likedResults[ item ].snippet.thumbnails.high.url
-						}
-
-						videoResults.likedOutput += `
+						videoResults.liked += `
 							<div class="video-embed">
-								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoResults.liked[ item ].videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${item.snippet.resourceId.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 							</div>
 						`;
 					});
 
-					settings.videos.innerHTML = videoResults.likedOutput;
+					settings.videos.innerHTML = videoResults.liked;
 				});
 	    });
     } else {
@@ -209,7 +187,6 @@ function createResource( properties ) {
 	      normalizedProps[ adjustedName ] = value.split( ',' );
 	    }
 
-
 	    delete normalizedProps[ p ];
 	  }
 	}
@@ -219,7 +196,6 @@ function createResource( properties ) {
 	  if ( normalizedProps.hasOwnProperty( p ) && normalizedProps[ p ] ) {
 
 	    let propArray = p.split('.');
-
 	    let ref = resource;
 
 	    for ( var pa = 0; pa < propArray.length; pa++ ) {
