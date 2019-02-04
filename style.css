@@ -2,7 +2,9 @@
 	display: none;
 }
 #login {
-	max-width: 200px;
+    max-width: 200px;
+    float: right;
+    margin-right: 10px;
 }
 #search{
 	max-width: 400px;
@@ -60,6 +62,10 @@ footer {
 .logout-left, .logout-right {
 	width: 50%;
     float: left;
+}
+.loout-right > span {
+	margin: 10px;
+    line-height: 45px
 }
 .user-details {
     margin-bottom: 20px;
