@@ -18,6 +18,11 @@ section {
 footer {
 	margin-top: 60px;
 }
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 .title {
 	margin: auto;
 	text-align: center;
@@ -32,4 +37,9 @@ footer {
 }
 .logout-right {
 	text-align: left;
+}
+.video-embed {
+	width: 100%;
+	max-width: 400%;
+	float: left;
 }

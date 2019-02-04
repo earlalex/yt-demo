@@ -82,7 +82,7 @@ function initClient() {
 
 					});
 
-					settings.videos.innerHTML = videoResults.search.replace(/[object Object]/g, '').replace(/,/, '');
+					settings.videos.innerHTML = videoResults.search;
 				});
 			} else {
 
@@ -148,7 +148,7 @@ function setSigninStatus( isSignedIn ) {
 						`;
 					});
 
-					settings.videos.innerHTML = videoResults.liked.replace(/[object Object]/g, '').replace(/,/, '');
+					settings.videos.innerHTML = videoResults.liked;
 				});
 	    });
     } else {
