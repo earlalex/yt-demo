@@ -57,11 +57,9 @@ footer {
 	font-size: 12px;
 	margin: 0;
 }
-.logout-left {
-	text-align: right;
-}
-.logout-right {
-	text-align: left;
+.logout-left, .logout-right {
+	width: 50%;
+    float: left;
 }
 .user-details {
     margin-bottom: 20px;
