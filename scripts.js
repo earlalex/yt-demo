@@ -55,6 +55,7 @@ function initClient() {
 
 			let term = settings.formInput.innerHTML;
 
+						console.log( term );
 			if ( term !== '' ) {
 
 				getSearch( term )
