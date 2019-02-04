@@ -82,7 +82,7 @@ function initClient() {
 
 					});
 
-					settings.videos.innerHTML = videoResults.search;
+					settings.videos.innerHTML = videoResults.search.replace(/[object Object]/g, '').replace(/,/, '');
 				});
 			} else {
 
