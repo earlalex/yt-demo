@@ -134,15 +134,17 @@ function setSigninStatus( isSignedIn ) {
 
 					for ( var i = likedResults.length - 1; i >= 0; i-- ) {
 
-						videoResults.liked[ i ] = {
-							'channel'     : likedResults[ i ].snippet.channelTitle,
-							'channelId'   : likedResults[ i ].snippet.channelId,
-							'title'       : likedResults[ i ].snippet.title,
-							'description' : likedResults[ i ].snippet.description,
-							'publishedAt' : likedResults[ i ].snippet.publishedAt,
-							'videoId'     : likedResults[ i ].snippet.resourceId.videoId,
-							'thumbnail'   : likedResults[ i ].snippet.thumbnails.high.url
-						}
+						videoResults.liked = i;
+
+						// videoResults.liked[ i ] = {
+						// 	'channel'     : likedResults[ i ].snippet.channelTitle,
+						// 	'channelId'   : likedResults[ i ].snippet.channelId,
+						// 	'title'       : likedResults[ i ].snippet.title,
+						// 	'description' : likedResults[ i ].snippet.description,
+						// 	'publishedAt' : likedResults[ i ].snippet.publishedAt,
+						// 	'videoId'     : likedResults[ i ].snippet.resourceId.videoId,
+						// 	'thumbnail'   : likedResults[ i ].snippet.thumbnails.high.url
+						// }
 					}
 				});
 	    });
