@@ -106,9 +106,10 @@ function setSigninStatus( isSignedIn ) {
 			    				'videoId'     : likedPlaylist[i].snippet.resourceId.videoId,
 			    				'thumbnail'   : likedPlaylist[i].snippet.thumbnails.high.url
 			    			}
+
+	   						console.log(likedvideos);
 			    		}
 	   					
-	   					console.log(likedvideos);
 			    	});
 	    	});
 
