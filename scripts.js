@@ -93,26 +93,24 @@ function setSigninStatus( isSignedIn ) {
 		    	getLiked( likedID )
 					.execute(function(likedResponse){
 
-						let likedPlaylist = likedResponse.items;
+					let likedPlaylist = likedResponse.items;
 
-			    		for ( var i = likedPlaylist.length - 1; i >= 0; i-- ) {
+					for ( var i = likedPlaylist.length - 1; i >= 0; i-- ) {
 
-			    			console.log(i);
-
-			    			likedvideos[i] = {
-			    				'channel'     : likedPlaylist[i].snippet.channelTitle,
-			    				'channelId'   : likedPlaylist[i].snippet.channelId,
-			    				'title'       : likedPlaylist[i].snippet.title,
-			    				'description' : likedPlaylist[i].snippet.description,
-			    				'publishedAt' : likedPlaylist[i].snippet.publishedAt,
-			    				'videoId'     : likedPlaylist[i].snippet.resourceId.videoId,
-			    				'thumbnail'   : likedPlaylist[i].snippet.thumbnails.high.url
-			    			}
-			    		}
-
-	   					console.log(likedvideos);
-			    	});
+						likedvideos[i] = {
+							'channel'     : likedPlaylist[i].snippet.channelTitle,
+							'channelId'   : likedPlaylist[i].snippet.channelId,
+							'title'       : likedPlaylist[i].snippet.title,
+							'description' : likedPlaylist[i].snippet.description,
+							'publishedAt' : likedPlaylist[i].snippet.publishedAt,
+							'videoId'     : likedPlaylist[i].snippet.resourceId.videoId,
+							'thumbnail'   : likedPlaylist[i].snippet.thumbnails.high.url
+						}
+					}
+				});
 	    	});
+
+	    	console.log(likedvideos);
 
     } else {
 
