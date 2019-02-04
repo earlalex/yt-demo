@@ -58,7 +58,7 @@ function initClient() {
 				getSearch( settings.formInput.innerHTML )
 					.execute( function( searchResponse ) {
 				
-						console.log(.searchResponse );
+						console.log( searchResponse );
 				}
 			} else {
 
