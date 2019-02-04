@@ -22,7 +22,9 @@ function handleClientLoad() {
 	settings.form        = document.getElementById( 'search' ),
 	settings.formInput   = document.getElementById( 'search-input' ),
 	settings.formSubmit  = document.getElementById( 'search-submit' ),
-	settings.email       = document.getElementById( 'email' ),
+	settings.image       = document.getElementById( 'user-image' ),
+	settings.name        = document.getElementById( 'user-name' ),
+	settings.email       = document.getElementById( 'user-email' ),
 	settings.videos      = document.getElementById( 'videos' ),
 	settings.noResults   = document.getElementById( 'no-results' ),
 	settings.showResults = document.getElementById( 'show-results' );
@@ -45,7 +47,9 @@ function initClient() {
       	
       	setSigninStatus(settings.GoogleAuth.isSignedIn.get());
 		
-		console.log( settings.user );
+		settings.image.src       = settings.user.w3.Paa;
+		settings.name.innerHTML  = settings.user.w3.ig;
+		settings.email.innerHTML = settings.user.w3.U3;
 
       	settings.loginBtn.onclick = function() {
     
