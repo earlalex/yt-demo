@@ -7,37 +7,29 @@
 	<body>
 		<header class="header">
 			<nav>
-				<div class="title">
-					<span>Youtube Channel Display Demo</span>
-				</div>
+				<h1 class="title">
+					Simple YouTube Search
+				</h1>
 				<div>
-					<button class="btn" id="login">Sign In</button>
-					<button class="btn" id="logout">Sign Out</button>
+					<form class="form" id="search" >
+						<input type="test" placeholder="Search" id="search-input">
+						<input type="submit" class="submit-btn" value="Submit">
+					</form>
 				</div>
 			</nav>
 		</header>
 		<div class="container">
 			<section>
 				<div id="login-area">			
-					<form class="form" id="search" >
-						<input type="test" placeholder="Enter In Channel Name" id="search-input">
-						<input type="submit" class="submit-btn" value="Submit">
-					</form>
 					<div class="details" id="channel" >
-						<div class="no-results">						
-							<h3>Channel Details</h3>
-							<p>You must first choose a channel.</p>
-						</div>
+						<button class="btn" id="logout">Sign Out</button>
 					</div>
 					<div class="display" id="videos" >
-						<div class="no-results">
-							<h3>Videos</h3>
-							<p>You must first choose a channel.</p>
-						</div>
 					</div>
 				</div>
 				<div id="logout-area">
-					<p>You are not logged in. You must log in to search for and view youtube videos.</p>
+					<span class="btn" id="login"><img src="img/login.png"></span>
+					<span>You are not logged in. You must log in to search for and view youtube videos.</span>
 				</div>
 			</section>
 			<footer>

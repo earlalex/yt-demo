@@ -1,14 +1,19 @@
-#logout, #login-area, #logout-area, #channel, #video {
+#logout, #login-area, #logout-area, #channel, #video, #form {
 	display: none;
 }
 nav {
-	background-color: #000;
+	background-color: ##8000FF;
 	color: #fff;
 	padding: 20px;
 	min-height: 70px;
 }
+
 section {
 	margin-top: 20px;
+}
+.title {
+	margin: auto;
+	text-align: center;
 }
 .btn {
 	margin: 10px;

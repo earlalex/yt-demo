@@ -74,6 +74,7 @@ function setSigninStatus( isSignedIn ) {
 	
 	    settings.loginBtn.style.display   = 'none';
 	    settings.logoutArea.style.display = 'none';
+	    settings.search.style.display     = 'block';
 	    settings.logoutBtn.style.display  = 'block';
 	    settings.loginArea.style.display  = 'block';
 	    settings.channel.style.display    = 'block';
@@ -110,12 +111,13 @@ function setSigninStatus( isSignedIn ) {
 				});
 	    	});
 
-	    	console.log(likedvideos);
+	    	console.log(likedvideos.length);
 
     } else {
 
 	    settings.loginBtn.style.display   = 'block';
 	    settings.logoutArea.style.display = 'block';
+	    settings.search.style.display     = 'none';
 	    settings.logoutBtn.style.display  = 'none';
 	    settings.loginArea.style.display  = 'none';
 	    settings.channel.style.display    = 'none';
