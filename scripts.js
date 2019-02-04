@@ -70,20 +70,20 @@ function initClient() {
 				
 					let searchResults = searchResponse.items;
 
-				    console.log(searchResults,videoResults.liked);
+					for ( var i = searchResults.length - 1; i >= 0; i-- ) {
 
-					// for ( var i = searchResults.length - 1; i >= 0; i-- ) {
+						videoResults.search[ i ] = {
+							'channel'     : searchResults[ i ].snippet.channelTitle,
+							'channelId'   : searchResults[ i ].snippet.channelId,
+							'title'       : searchResults[ i ].snippet.title,
+							'description' : searchResults[ i ].snippet.description,
+							'publishedAt' : searchResults[ i ].snippet.publishedAt,
+							'videoId'     : searchResults[ i ].snippet.resourceId.videoId,
+							'thumbnail'   : searchResults[ i ].snippet.thumbnails.high.url
+						}
+					}
 
-						// videoResults.search[ i ] = {
-						// 	'channel'     : searchResults[ i ].snippet.channelTitle,
-						// 	'channelId'   : searchResults[ i ].snippet.channelId,
-						// 	'title'       : searchResults[ i ].snippet.title,
-						// 	'description' : searchResults[ i ].snippet.description,
-						// 	'publishedAt' : searchResults[ i ].snippet.publishedAt,
-						// 	'videoId'     : searchResults[ i ].snippet.resourceId.videoId,
-						// 	'thumbnail'   : searchResults[ i ].snippet.thumbnails.high.url
-						// }
-					// }
+				    console.log(videoResults.search,videoResults.liked);
 				});
 			} else {
 
