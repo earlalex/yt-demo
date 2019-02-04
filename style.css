@@ -1,4 +1,4 @@
-#logout, #login-area, #logout-area, #email, #video, #search {
+#logout, #login-area, #logout-area, #email, #video, #search, .user-image, .user-name {
 	display: none;
 }
 #login {

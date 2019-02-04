@@ -26,6 +26,7 @@ function handleClientLoad() {
 	settings.name        = document.getElementById( 'user-name' ),
 	settings.email       = document.getElementById( 'user-email' ),
 	settings.videos      = document.getElementById( 'videos' ),
+	settings.videosTitle = document.getElementById( 'videos-title' ),
 	settings.noResults   = document.getElementById( 'no-results' ),
 	settings.showResults = document.getElementById( 'show-results' );
 }
@@ -84,9 +85,9 @@ function initClient() {
 
 					});
 
-					settings.videos.innerHTML     = videoResults.search;
-
-					settings.videos.style.display = 'block';
+					settings.videosTitle.innerHTML = 'Video Search',
+					settings.videos.innerHTML      = videoResults.search,
+					settings.videos.style.display  = 'block';
 				});
 			} else {
 
@@ -151,9 +152,9 @@ function setSigninStatus( isSignedIn ) {
 						`;
 					});
 
-					settings.videos.innerHTML     = videoResults.liked;
-
-					settings.videos.style.display = 'block';
+					settings.videosTitle.innerHTML = 'Liked Videos',
+					settings.videos.innerHTML      = videoResults.liked,
+					settings.videos.style.display  = 'block';
 				});
 	    });
     } else {
