@@ -95,7 +95,7 @@ function setSigninStatus( isSignedIn ) {
 
 			    		for ( let i = likedPlaylist.length - 1; i >= 0; i-- ) {
 
-			    			var likedvideos = {};
+			    			let likedvideos = {};
 
 			    			likedvideos.i = {
 			    				'channel'     : likedPlaylist[i].snippet.channelTitle,
@@ -107,10 +107,11 @@ function setSigninStatus( isSignedIn ) {
 			    				'thumbnail'   : likedPlaylist[i].snippet.thumbnails.high.url
 			    			}
 			    		}
+	   					
+	   					console.log(likedvideos);
 			    	});
 	    	});
 
-	   console.log(likedvideos);
     } else {
 
 	    settings.loginBtn.style.display   = 'block';
