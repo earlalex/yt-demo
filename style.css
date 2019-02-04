@@ -69,6 +69,6 @@ footer {
 .video-embed {
 	width: 100%;
 	max-width: 300px;
-	padding: 2px;
+	padding: 0px 2px;
 	float: left;
 }
