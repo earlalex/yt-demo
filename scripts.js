@@ -74,16 +74,17 @@ function initClient() {
 
 					searchResults.forEach( item => {
 
-						console.log(item);
-						// videoResults.search += `
-						// 	<div class="video-embed">
-						// 		<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-						// 	</div>
-						// `;
+						console.log(item.id.videoId);
+						
+						videoResults.search += `
+							<div class="video-embed">
+								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							</div>
+						`;
 
 					});
 
-					// settings.videos.innerHTML = videoResults.search;
+					settings.videos.innerHTML = videoResults.search;
 				});
 			} else {
 
