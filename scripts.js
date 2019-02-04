@@ -69,7 +69,7 @@ function initClient() {
 				
 					// let searchResults = searchResponse.items;
 
-						videoResults.search = searchResponse;
+				    console.log(searchResponse,videoResults.liked);
 
 					// for ( var i = searchResults.length - 1; i >= 0; i-- ) {
 
@@ -84,7 +84,6 @@ function initClient() {
 						// }
 					// }
 				});
-				    console.log(videoResults.search,videoResults.liked);
 			} else {
 
 						console.log( 'Nothing' );
