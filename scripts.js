@@ -89,13 +89,26 @@ function setSigninStatus( isSignedIn ) {
 					.likes;
 
 		    	getLiked( likedID )
-			    	.execute(function(likedResponse){
+					.execute(function(likedResponse){
 
-			    		let likedPlaylist = likedResponse.items;
-	    console.log(likedPlaylist);
+						let likedPlaylist = likedResponse.items;
+
+			    		for ( let i = likedPlaylist.length - 1; i >= 0; i-- ) {
+
+			    			var likedvideos.i = {
+			    				'channel'     : likedPlaylist[i].snippet.channelTitle,
+			    				'channelId'   : likedPlaylist[i].snippet.channelId,
+			    				'title'       : likedPlaylist[i].snippet.title,
+			    				'description' : likedPlaylist[i].snippet.description,
+			    				'publishedAt' : likedPlaylist[i].snippet.publishedAt,
+			    				'videoId'     : likedPlaylist[i].snippet.resourceId.videoId,
+			    				'thumbnail'   : likedPlaylist[i].snippet.thumbnails.high.url
+			    			}
+			    		}
 			    	});
 	    	});
 
+	   console.log(likedvideos);
     } else {
 
 	    settings.loginBtn.style.display   = 'block';
