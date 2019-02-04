@@ -111,7 +111,8 @@ function setSigninStatus( isSignedIn ) {
 				});
 	    	});
 
-			console.table(likedvideos);
+		console.log(likedvideos);
+		console.table(likedvideos);
 
     } else {
 
