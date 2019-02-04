@@ -17,6 +17,7 @@ function handleClientLoad() {
 	settings.logoutArea  = document.getElementById( 'logout-area' ),
 	settings.form        = document.getElementById( 'search' ),
 	settings.formInput   = document.getElementById( 'search-input' ),
+	settings.formSubmit  = document.getElementById( 'search-submit' ),
 	settings.channel     = document.getElementById( 'channel' ),
 	settings.videos      = document.getElementById( 'videos' ),
 	settings.noResults   = document.getElementById( 'no-results' ),
@@ -32,8 +33,8 @@ function initClient() {
         'scope'         : settings.scope
     }).then( function() {
 
-		settings.GoogleAuth   = gapi.auth2.getAuthInstance();
-		settings.user         = settings.GoogleAuth.currentUser.get();
+		settings.GoogleAuth   = gapi.auth2.getAuthInstance(),
+		settings.user         = settings.GoogleAuth.currentUser.get(),
 		settings.isAuthorized = settings.user.hasGrantedScopes( settings.scope );
 	
 		settings.GoogleAuth.isSignedIn.listen( updateSigninStatus );
@@ -48,7 +49,22 @@ function initClient() {
       	settings.logoutBtn.onclick = function() {
     
         	revokeAccess();
-		}; 
+		};
+
+		settings.formSubmit.onclick = function() {
+
+			if ( settings.formInput.innerHTML !== '' ) {
+
+				getSearch( settings.formInput.innerHTML )
+					.execute( function( searchResponse ) {
+				
+						console.log(.searchResponse );
+				}
+			} else {
+
+
+			}
+		}
     });
 }
 
@@ -72,56 +88,52 @@ function setSigninStatus( isSignedIn ) {
 
     if ( isSignedIn ) {
 	
-	    settings.loginBtn.style.display   = 'none';
-	    settings.logoutArea.style.display = 'none';
-	    settings.form.style.display       = 'block';
-	    settings.logoutBtn.style.display  = 'block';
-	    settings.loginArea.style.display  = 'block';
-	    settings.channel.style.display    = 'block';
+	    settings.loginBtn.style.display   = 'none',
+	    settings.logoutArea.style.display = 'none',
+	    settings.form.style.display       = 'block',
+	    settings.logoutBtn.style.display  = 'block',
+	    settings.loginArea.style.display  = 'block',
+	    settings.channel.style.display    = 'block',
 	    settings.videos.style.display     = 'block';
 
 	    var likedvideos = {};
     	
     	getChannels()
-	    	.execute(function(response) {
+	    	.execute( function( response ) {
 
 	    		let likedID = response
-					.items[0]
+					.items[ 0 ]
 					.contentDetails
 					.relatedPlaylists
 					.likes;
 
 		    	getLiked( likedID )
-					.execute(function(likedResponse){
+					.execute( function( likedResponse ) {
 
 					let likedPlaylist = likedResponse.items;
 
 					for ( var i = likedPlaylist.length - 1; i >= 0; i-- ) {
 
-						likedvideos[i] = {
-							'channel'     : likedPlaylist[i].snippet.channelTitle,
-							'channelId'   : likedPlaylist[i].snippet.channelId,
-							'title'       : likedPlaylist[i].snippet.title,
-							'description' : likedPlaylist[i].snippet.description,
-							'publishedAt' : likedPlaylist[i].snippet.publishedAt,
-							'videoId'     : likedPlaylist[i].snippet.resourceId.videoId,
-							'thumbnail'   : likedPlaylist[i].snippet.thumbnails.high.url
+						likedvideos[ i ] = {
+							'channel'     : likedPlaylist[ i ].snippet.channelTitle,
+							'channelId'   : likedPlaylist[ i ].snippet.channelId,
+							'title'       : likedPlaylist[ i ].snippet.title,
+							'description' : likedPlaylist[ i ].snippet.description,
+							'publishedAt' : likedPlaylist[ i ].snippet.publishedAt,
+							'videoId'     : likedPlaylist[ i ].snippet.resourceId.videoId,
+							'thumbnail'   : likedPlaylist[ i ].snippet.thumbnails.high.url
 						}
 					}
 				});
-	    	});
-
-		console.log(likedvideos);
-		console.table(likedvideos);
-
+	    });
     } else {
 
-	    settings.loginBtn.style.display   = 'block';
-	    settings.logoutArea.style.display = 'block';
-	    settings.form.style.display       = 'none';
-	    settings.logoutBtn.style.display  = 'none';
-	    settings.loginArea.style.display  = 'none';
-	    settings.channel.style.display    = 'none';
+	    settings.loginBtn.style.display   = 'block',
+	    settings.logoutArea.style.display = 'block',
+	    settings.form.style.display       = 'none',
+	    settings.logoutBtn.style.display  = 'none',
+	    settings.loginArea.style.display  = 'none',
+	    settings.channel.style.display    = 'none',
 	    settings.videos.style.display     = 'none';
     }
 }
@@ -132,48 +144,47 @@ function updateSigninStatus( isSignedIn ) {
 }
 
 
-function createResource(properties) {
+function createResource( properties ) {
 
-	var resource        = {};
-	var normalizedProps = properties;
+	let resource        = {};
+	let normalizedProps = properties;
 
-	for (var p in properties) {
+	for ( var p in properties ) {
 
-	  var value = properties[p];
+	  let value = properties[ p ];
 
-	  if (p && p.substr(-2, 2) == '[]') {
+	  if ( p && p.substr( -2, 2 ) == '[]' ) {
 
-	    var adjustedName = p.replace('[]', '');
+	    let adjustedName = p.replace( '[]', '' );
 
-	    if (value) {
+	    if ( value ) {
 
-	      normalizedProps[adjustedName] = value.split(',');
+	      normalizedProps[ adjustedName ] = value.split( ',' );
 	    }
 
 
-	    delete normalizedProps[p];
+	    delete normalizedProps[ p ];
 	  }
 	}
 
-	for (var p in normalizedProps) {
+	for ( var p in normalizedProps ) {
 
-	  // Leave properties that don't have values out of inserted resource.
-	  if (normalizedProps.hasOwnProperty(p) && normalizedProps[p]) {
+	  if ( normalizedProps.hasOwnProperty( p ) && normalizedProps[ p ] ) {
 
-	    var propArray = p.split('.');
+	    let propArray = p.split('.');
 
-	    var ref = resource;
+	    let ref = resource;
 
-	    for (var pa = 0; pa < propArray.length; pa++) {
+	    for ( var pa = 0; pa < propArray.length; pa++ ) {
 
-	      var key = propArray[pa];
+	      let key = propArray[ pa ];
 
-	      if (pa == propArray.length - 1) {
+	      if ( pa == propArray.length - 1 ) {
 
-	        ref[key] = normalizedProps[p];
+	        ref[ key ] = normalizedProps[ p ];
 	      } else {
 
-	        ref = ref[key] = ref[key] || {};
+	        ref = ref[ key ] = ref[ key ] || {};
 	      }
 	    }
 	  };
@@ -182,33 +193,44 @@ function createResource(properties) {
 	return resource;
 }
 
-function removeEmptyParams(params) {
-	for (var p in params) {
-	  if (!params[p] || params[p] == 'undefined') {
-	    delete params[p];
+function removeEmptyParams( params ) {
+
+	for ( var p in params ) {
+	
+	  if ( !params[ p ] || params[ p ] == 'undefined' ) {
+	
+	    delete params[ p ];
 	  }
 	}
+	
 	return params;
 }
 
-function buildApiRequest(requestMethod, path, params, properties) {
-	params = removeEmptyParams(params);
-	var request;
-	if (properties) {
-	  var resource = createResource(properties);
+function buildApiRequest( requestMethod, path, params, properties ) {
+	
+	params = removeEmptyParams( params );
+	
+	let request;
+	
+	if ( properties ) {
+	
+	  let resource = createResource( properties );
+	
 	  request = gapi.client.request({
-	      'body': resource,
-	      'method': requestMethod,
-	      'path': path,
-	      'params': params
+	      'body'   : resource,
+	      'method' : requestMethod,
+	      'path'   : path,
+	      'params' : params
 	  });
 	} else {
+	
 	  request = gapi.client.request({
-	      'method': requestMethod,
-	      'path': path,
-	      'params': params
+	      'method' : requestMethod,
+	      'path'   : path,
+	      'params' : params
 	  });
 	}
+	
 	return request;
 }
 
@@ -217,9 +239,9 @@ function getChannels() {
 	return buildApiRequest('GET',
         '/youtube/v3/channels',
         {
-        	'mine': true,
-        	'part': 'contentDetails',
-        	'key' : settings.apiKey
+        	'mine' : true,
+        	'part' : 'contentDetails',
+        	'key'  : settings.apiKey
     	}
     );
 }
@@ -233,5 +255,18 @@ function getLiked( id ) {
         	'key'        : settings.apiKey
     	}
     );
+}
+function getSearch( term ) {
+
+	return buildApiRequest('GET',
+        '/youtube/v3/search',
+        {
+        	'part' : 'snippet',
+        	'q'    : term,
+        	'type' : 'video',
+        	'key'  : settings.apiKey
+    	}
+    );
+
 }
 
