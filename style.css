@@ -23,6 +23,10 @@ footer {
   clear: both;
   display: table;
 }
+.container {
+	max-width: 912px;
+    margin: auto;
+}
 .title {
 	margin: auto;
 	text-align: center;
@@ -40,6 +44,7 @@ footer {
 }
 .video-embed {
 	width: 100%;
-	max-width: 400%;
+	max-width: 300px;
+	padding: 2px;
 	float: left;
 }
