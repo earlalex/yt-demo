@@ -92,10 +92,10 @@ function setSigninStatus( isSignedIn ) {
 			    	.execute(function(likedResponse){
 
 			    		let likedPlaylist = likedResponse.items;
+	    console.log(likedPlaylist);
 			    	});
 	    	});
 
-	    console.log(likedPlaylist);
     } else {
 
 	    settings.loginBtn.style.display   = 'block';
