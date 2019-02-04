@@ -63,10 +63,6 @@ footer {
 	width: 50%;
     float: left;
 }
-.logout-right > span {
-	margin: 10px;
-    line-height: 45px
-}
 .user-details {
     margin-bottom: 20px;
 }
