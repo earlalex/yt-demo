@@ -266,10 +266,11 @@ function getSearch( term ) {
 	return buildApiRequest('GET',
         '/youtube/v3/search',
         {
-        	'part' : 'snippet',
-        	'q'    : term,
-        	'type' : 'video',
-        	'key'  : settings.apiKey
+        	'part'       : 'snippet',
+        	'q'          : term,
+        	'type'       : 'video',
+        	'maxResults' : 20;
+        	'key'        : settings.apiKey
     	}
     );
 
