@@ -74,13 +74,11 @@ function initClient() {
 
 					searchResults.forEach( item => {
 
-						console.log(item.id.videoId);
-						
-						videoResults.search += `
-							<div class="video-embed">
-								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-							</div>
-						`;
+						let vidId = item.id.videoId;
+
+						videoResults.search += `<div class="video-embed">
+	<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${vidId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>`;
 
 					});
 
@@ -141,9 +139,11 @@ function setSigninStatus( isSignedIn ) {
 
 					likedResults.forEach( item => {
 
+						let vidId = item.snippet.resourceId.videoId;
+
 						videoResults.liked += `
 							<div class="video-embed">
-								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${item.snippet.resourceId.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/${vidId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 							</div>
 						`;
 					});
