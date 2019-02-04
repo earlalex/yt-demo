@@ -10,8 +10,13 @@
     margin-top: 20px;
 }
 #search-input {
-	width: 100%;
-    line-height: 30px;
+    width: 100%;
+    line-height: 32px;
+    font-size: 24px;
+    color: #636363;
+    border-radius: 3px;
+    border: 0;
+    padding: 10px;
 }
 body {
 	font-family: Arial;
@@ -49,6 +54,8 @@ footer {
 }
 .search-text {
 	color: #e3e3e3;
+	font-size: 12px;
+	margin: 0;
 }
 .logout-left {
 	text-align: right;
